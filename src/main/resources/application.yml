@@ -1,0 +1,29 @@
+# JPA and MySQL configuration
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/search
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+
+
+api:
+  kakao:
+    host: "https://dapi.kakao.com"
+    path: "/v2/local/search/keyword.json"
+    apiKey: "7cf54ca251ed04d1dc0d6f154f113755"
+    size: "5"
+  naver:
+    host: "https://openapi.naver.com"
+    path: "/v1/search/local.json"
+    clientId: "cTvlXZ8DZuog7cmB84j8"
+    clientSecret: "7U3TtLAEXe"
+    displayCount: "5"
