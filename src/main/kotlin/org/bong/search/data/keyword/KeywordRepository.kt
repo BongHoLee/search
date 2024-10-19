@@ -5,9 +5,20 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
+import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 
-interface KeywordRepository : JpaRepository<KeywordEntity, Long> {
+
+@Repository
+class KeywordRepository(
+    private val keywordJpaRepository: KeywordJpaRepository
+) {
+    fun incrementCount(word: String, theme: Theme) {
+        keywordJpaRepository.incrementCount(word, theme.name)
+    }
+}
+
+interface KeywordJpaRepository : JpaRepository<KeywordEntity, Long> {
 
     fun findByWordAndTheme(word: String, theme: Theme): KeywordEntity?
 
@@ -26,3 +37,4 @@ interface KeywordRepository : JpaRepository<KeywordEntity, Long> {
     )
     fun incrementCount(@Param("word") word: String, @Param("themeValue") themeValue: String)
 }
+

@@ -2,9 +2,9 @@ package org.bong.search.domain.place
 
 import org.bong.search.core.CommonSearchService
 import org.bong.search.core.processor.PostProcessor
-import org.bong.search.data.keyword.KeywordRepository
 import org.bong.search.domain.keyword.AsyncRecordKeyword
 import org.bong.search.domain.keyword.RecordKeyword
+import org.bong.search.domain.keyword.Recorder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -32,8 +32,8 @@ class PlaceSearchUseCaseConfiguration {
         RecordKeyword(asyncRecordKeyword)
 
     @Bean
-    fun asyncRecordKeyword(keywordRepository: KeywordRepository): AsyncRecordKeyword =
-        AsyncRecordKeyword(keywordRepository)
+    fun asyncRecordKeyword(recorder: Recorder): AsyncRecordKeyword =
+        AsyncRecordKeyword(recorder)
 
     // create PostProcessor bean
     @Bean
