@@ -6,7 +6,6 @@ import org.bong.search.domain.place.Places
 
 @Serializable
 data class KakaoPlaceResponse(
-    val meta: Meta,
     val documents: List<Document>
 ) {
     fun toPlaces() = Places(
@@ -19,20 +18,6 @@ data class KakaoPlaceResponse(
     )
 }
 
-@Serializable
-data class Meta(
-    val same_name: SameName,
-    val pageable_count: Int,
-    val total_count: Int,
-    val is_end: Boolean
-)
-
-@Serializable
-data class SameName(
-    val region: List<String>,
-    val keyword: String,
-    val selected_region: String
-)
 
 @Serializable
 data class Document(
