@@ -5,10 +5,10 @@ import org.bong.search.core.SearchingKeyword
 
 
 class PlaceSearch(
-    private val placeSearchClientApi: PlaceSearchClientApi
+    private val placeReader: PlaceReader
 ) : SearchEngine<Places> {
 
     override fun search(keyword: SearchingKeyword): Places {
-        return placeSearchClientApi.search(keyword)
+        return placeReader.read(keyword)
     }
 }
