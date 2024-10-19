@@ -1,4 +1,4 @@
-package org.bong.search.common.client
+package org.bong.search.client.api
 
 import kotlinx.coroutines.reactor.awaitSingle
 import org.springframework.web.reactive.function.client.WebClient

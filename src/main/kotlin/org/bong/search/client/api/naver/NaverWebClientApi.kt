@@ -1,6 +1,6 @@
-package org.bong.search.common.client.naver
+package org.bong.search.client.api.naver
 
-import org.bong.search.common.client.BaseWebClientApi
+import org.bong.search.client.api.BaseWebClientApi
 import org.springframework.web.reactive.function.client.WebClient
 
 class NaverWebClientApi(

@@ -1,8 +1,8 @@
-package org.bong.search.common.client
+package org.bong.search.client.api
 
 import kotlinx.serialization.json.Json
-import org.bong.search.common.client.kakao.KakaoWebClientApi
-import org.bong.search.common.client.naver.NaverWebClientApi
+import org.bong.search.client.api.kakao.KakaoWebClientApi
+import org.bong.search.client.api.naver.NaverWebClientApi
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.codec.json.KotlinSerializationJsonDecoder

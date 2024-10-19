@@ -1,12 +1,13 @@
-package org.bong.search.domain.place.infra.client
+package org.bong.search.domain.place
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
-import org.bong.search.common.client.kakao.KakaoWebClientApi
-import org.bong.search.common.client.naver.NaverWebClientApi
+import org.bong.search.client.api.kakao.KakaoWebClientApi
+import org.bong.search.client.api.naver.NaverWebClientApi
+import org.bong.search.client.place.KakaoPlaceResponse
+import org.bong.search.client.place.NaverPlaceResponse
 import org.bong.search.core.SearchingKeyword
-import org.bong.search.domain.place.service.Places
 
 class PlaceSearchClientApi(
     private val kakaoWebClientApi: KakaoWebClientApi,
@@ -18,7 +19,7 @@ class PlaceSearchClientApi(
         private const val NAVER_PLACE_PATH = "/v1/search/local.json"
     }
 
-    fun search(searchingKeyword: SearchingKeyword): Places  = runBlocking {
+    fun search(searchingKeyword: SearchingKeyword): Places = runBlocking {
         coroutineScope {
             val kakaoPlacesDeferred = async { requestToKakaoApi(searchingKeyword.keyword) }
             val naverPlacesDeferred = async { requestToNaverApi(searchingKeyword.keyword) }

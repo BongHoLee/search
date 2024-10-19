@@ -3,7 +3,7 @@ package org.bong.search.presentation
 import org.bong.search.core.SearchService
 import org.bong.search.core.SearchingKeyword
 import org.bong.search.core.Theme
-import org.bong.search.domain.place.service.Places
+import org.bong.search.domain.place.Places
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController

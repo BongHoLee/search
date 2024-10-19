@@ -1,4 +1,4 @@
-package org.bong.search.domain.place.service
+package org.bong.search.domain.place
 
 data class Places(
     val places: List<Place>

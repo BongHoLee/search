@@ -1,8 +1,8 @@
-package org.bong.search.domain.keyword.service
+package org.bong.search.domain.keyword
 
 import org.bong.search.core.SearchingKeyword
 import org.bong.search.core.processor.PreProcessor
-import org.bong.search.domain.keyword.infra.data.KeywordRepository
+import org.bong.search.data.keyword.KeywordRepository
 import org.springframework.scheduling.annotation.Async
 
 

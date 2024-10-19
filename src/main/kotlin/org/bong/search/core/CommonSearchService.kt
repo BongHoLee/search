@@ -1,8 +1,5 @@
-package org.bong.search.common.service
+package org.bong.search.core
 
-import org.bong.search.core.SearchEngine
-import org.bong.search.core.SearchService
-import org.bong.search.core.SearchingKeyword
 import org.bong.search.core.processor.PostProcessor
 import org.bong.search.core.processor.PreProcessor
 

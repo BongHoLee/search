@@ -1,7 +1,7 @@
-package org.bong.search.domain.keyword.infra.data
+package org.bong.search.data.keyword
 
 import jakarta.persistence.*
-import org.bong.search.common.data.BaseEntity
+import org.bong.search.data.BaseEntity
 import org.bong.search.core.SearchingKeyword
 import org.bong.search.core.Theme
 

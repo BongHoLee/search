@@ -1,15 +1,12 @@
 package org.bong.search.domain.place
 
-import org.bong.search.common.client.kakao.KakaoWebClientApi
-import org.bong.search.common.client.naver.NaverWebClientApi
-import org.bong.search.common.service.CommonSearchService
+import org.bong.search.client.api.kakao.KakaoWebClientApi
+import org.bong.search.client.api.naver.NaverWebClientApi
+import org.bong.search.core.CommonSearchService
 import org.bong.search.core.processor.PostProcessor
-import org.bong.search.domain.keyword.infra.data.KeywordRepository
-import org.bong.search.domain.keyword.service.AsyncRecordKeyword
-import org.bong.search.domain.keyword.service.RecordKeyword
-import org.bong.search.domain.place.infra.client.PlaceSearchClientApi
-import org.bong.search.domain.place.service.PlaceSearch
-import org.bong.search.domain.place.service.Places
+import org.bong.search.data.keyword.KeywordRepository
+import org.bong.search.domain.keyword.AsyncRecordKeyword
+import org.bong.search.domain.keyword.RecordKeyword
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

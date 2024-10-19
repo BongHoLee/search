@@ -1,4 +1,4 @@
-package org.bong.search.domain.keyword.infra.data
+package org.bong.search.data.keyword
 
 import org.bong.search.core.Theme
 import org.springframework.data.jpa.repository.JpaRepository

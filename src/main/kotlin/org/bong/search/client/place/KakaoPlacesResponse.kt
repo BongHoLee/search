@@ -1,8 +1,8 @@
-package org.bong.search.domain.place.infra.client
+package org.bong.search.client.place
 
 import kotlinx.serialization.Serializable
-import org.bong.search.domain.place.service.Place
-import org.bong.search.domain.place.service.Places
+import org.bong.search.domain.place.Place
+import org.bong.search.domain.place.Places
 
 @Serializable
 data class KakaoPlaceResponse(
