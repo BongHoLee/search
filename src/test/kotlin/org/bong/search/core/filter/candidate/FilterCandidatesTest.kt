@@ -1,6 +1,5 @@
 package org.bong.search.core.filter.candidate
 
-import org.bong.search.core.User
 import kotlin.reflect.KProperty1
 import kotlin.reflect.full.memberProperties
 
@@ -31,17 +30,4 @@ class GraterThanFilter<T : Comparable<T>>(
     override fun judge(item: T): Boolean {
         return item > targetValue
     }
-}
-
-
-fun main() {
-    val users = listOf(
-        User("Alice", 20, "Seoul"),
-        User("Bob", 30, "Busan"),
-        User("Charlie", 40, "Daegu")
-    )
-
-    val filter = GraterThanFilter("age", 30)
-    val filteredUsers = filter.execute(users)
-    println(filteredUsers)
 }
