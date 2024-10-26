@@ -1,9 +1,7 @@
 package org.bong.search.core.processor.filter
 
 import io.kotest.core.spec.style.FunSpec
-import org.bong.search.core.processor.filter.ComparisonOperator
-import org.bong.search.core.processor.filter.Filter
-import org.bong.search.core.processor.filter.FilterStrategy
+import org.bong.search.core.processor.TestItemData
 
 
 class FilterTest : FunSpec({
@@ -50,18 +48,3 @@ class FilterTest : FunSpec({
         }
     }
 })
-data class TestItemData(
-    val name: String,
-    val age: Int,
-    val address: String
-) {
-    companion object {
-        fun itemListFixture() =
-            listOf(
-                TestItemData("Alice", 20, "Seoul"),
-                TestItemData("Bob", 30, "Busan"),
-                TestItemData("Charlie", 40, "Daegu"),
-                TestItemData("Kim", 50, "Seoul")
-            )
-    }
-}
