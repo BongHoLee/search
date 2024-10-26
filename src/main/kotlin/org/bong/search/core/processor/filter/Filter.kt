@@ -17,13 +17,13 @@ class Filter<T : Any>(
 
 class FilterStrategy<T : Any, V : Comparable<V>>(
     private val targetProperty: KProperty1<T, V>,
-    private val targetValue: V,
+    private val compareValue: V,
     private val comparisonOperator: ComparisonOperator,
 ) {
     fun execute(items: List<T>): List<T> {
         return items.filter { item ->
-            val value = targetProperty.get(item)
-            comparisonOperator.compare(value, targetValue)
+            val originValue = targetProperty.get(item)
+            comparisonOperator.compare(originValue, compareValue)
         }
     }
 }
