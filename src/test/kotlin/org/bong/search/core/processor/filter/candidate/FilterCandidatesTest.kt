@@ -1,4 +1,4 @@
-package org.bong.search.core.filter.candidate
+package org.bong.search.core.processor.filter.candidate
 
 import kotlin.reflect.KProperty1
 import kotlin.reflect.full.memberProperties
