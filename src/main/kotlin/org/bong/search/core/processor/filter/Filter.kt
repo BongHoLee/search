@@ -31,12 +31,13 @@ class FilterStrategy<T : Any, V : Comparable<V>>(
 enum class ComparisonOperator(
     private val symbol: String,
 ) {
-    EQUALS("=="),
-    NOT_EQUALS("!="),
-    GREATER_THAN(">"),
-    GREATER_THAN_OR_EQUALS(">="),
-    LESS_THAN("<"),
-    LESS_THAN_OR_EQUALS("<=");
+    EQUALS("EQ"),
+    NOT_EQUALS("NEQ"),
+    GREATER_THAN("GT"),
+    GREATER_THAN_OR_EQUALS("GTE"),
+    LESS_THAN("LT"),
+    LESS_THAN_OR_EQUALS("LTE"),
+    CONTAINS("CTN");
 
     companion object {
         fun from(symbol: String): ComparisonOperator {
@@ -57,6 +58,13 @@ enum class ComparisonOperator(
             GREATER_THAN_OR_EQUALS -> left >= right
             LESS_THAN -> left < right
             LESS_THAN_OR_EQUALS -> left <= right
+            CONTAINS -> {
+                if (left is String && right is String) {
+                    left.contains(right)
+                } else {
+                    throw IllegalArgumentException("Only String type is supported for CONTAINS operator")
+                }
+            }
         }
     }
 }
