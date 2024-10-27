@@ -4,7 +4,7 @@ import kotlin.reflect.KProperty1
 
 class CompareByCount<T, V : Comparable<V>>(
     private val targetProperty: KProperty1<T, V>,
-    private val next: OrderCompare<T>
+    private val next: OrderCompare<T> = NothingCompare()
 )  {
     fun execute(items: List<T>): List<T> {
         val orderingByCount = orderingByCount(items)
@@ -19,9 +19,11 @@ class CompareByCount<T, V : Comparable<V>>(
             .values
             .groupBy { it.size }
             .values
+            .sortedByDescending { it.first().size }
             .map { groupedLists ->
                 groupedLists.map { it.first() }
             }
+
         return orderingByCount
     }
 }

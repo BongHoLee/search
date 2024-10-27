@@ -1,6 +1,7 @@
 package org.bong.search.core.processor.order.compare
 
 import io.kotest.core.spec.style.FunSpec
+import io.kotest.matchers.shouldBe
 import org.bong.search.core.processor.TestItemData
 
 class CountCompareTest : FunSpec({
@@ -24,9 +25,9 @@ class CountCompareTest : FunSpec({
             ).execute(items)
 
             // then
-            assert(orderedItems.size == 3)
-            assert(orderedItems[0].address == "Seoul")
-            assert(orderedItems[1].address == "Daegu")
-            assert(orderedItems[2].address == "Busan")
+            orderedItems.size shouldBe 3
+            orderedItems[0].address shouldBe "Seoul"
+            orderedItems[1].address shouldBe "Daegu"
+            orderedItems[2].address shouldBe "Busan"
         }
 })
