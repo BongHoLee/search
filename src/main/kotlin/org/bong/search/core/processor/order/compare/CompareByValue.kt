@@ -7,12 +7,18 @@ class CompareByValue<T, V : Comparable<V>>(
     private val targetProperty: KProperty1<T, V>,
     private val compareValue: V,
     private val comparisonOperator: ComparisonOperator,
+    private val next: OrderCompare<T> = NothingCompare()
 ) : OrderCompare<T> {
     override fun execute(items: List<T>): List<T> {
-        return items.sortedWith(
-            compareByDescending { item ->
-                comparisonOperator.compare(targetProperty.get(item), compareValue)
-            }
-        )
+        val (matched, notMatched) = groupingMatchedOrNot(items)
+
+        return listOf(matched, notMatched)
+            .flatMap { next.execute(it) }
+    }
+
+    private fun groupingMatchedOrNot(items: List<T>): Pair<List<T>, List<T>> {
+        return items.partition { item ->
+            comparisonOperator.compare(targetProperty.get(item), compareValue)
+        }
     }
 }

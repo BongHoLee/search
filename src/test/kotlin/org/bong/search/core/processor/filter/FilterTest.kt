@@ -2,6 +2,7 @@ package org.bong.search.core.processor.filter
 
 import io.kotest.core.spec.style.FunSpec
 import org.bong.search.core.processor.TestItemData
+import org.bong.search.core.processor.operator.ComparisonOperator
 
 
 class FilterTest : FunSpec({

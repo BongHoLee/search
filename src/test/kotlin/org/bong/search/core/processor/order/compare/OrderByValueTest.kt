@@ -1,6 +1,7 @@
 package org.bong.search.core.processor.order.compare
 
 import io.kotest.core.spec.style.FunSpec
+import io.kotest.matchers.string.shouldContain
 import org.bong.search.core.processor.TestItemData
 import org.bong.search.core.processor.operator.ComparisonOperator
 
@@ -20,10 +21,11 @@ class OrderByValueTest : FunSpec({
         val orderedItems = CompareByValue(
             TestItemData::name,
             orderingValue,
-            ComparisonOperator.CONTAINS
+            ComparisonOperator.CONTAINS,
+            NothingCompare()
         ).execute(items)
 
         // then
-        assert(orderedItems.first().name.contains(orderingValue))
+        orderedItems.first().name shouldContain orderingValue
     }
 })
