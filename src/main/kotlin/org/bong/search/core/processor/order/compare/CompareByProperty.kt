@@ -7,9 +7,9 @@ class CompareByProperty<T, V : Comparable<V>>(
     private val next: OrderCompare<T> = NothingCompare(),
 ) : OrderCompare<T> {
     override fun execute(items: List<T>): List<T> {
-        val groupBy = items.groupBy { targetProperty.get(it) }
-        return groupBy.keys
+        val grouped = items.groupBy { targetProperty.get(it) }
+        return grouped.keys
             .sortedByDescending { it }
-            .flatMap { next.execute(groupBy[it]!!) }
+            .flatMap { next.execute(grouped[it]!!) }
     }
 }
