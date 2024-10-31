@@ -1,6 +1,6 @@
 package org.bong.search.core.processor
 
-import org.bong.search.core.SearchingKeyword
+import org.bong.search.core.keyword.SearchingKeyword
 
 interface PreProcessor {
     fun process(keyword: SearchingKeyword): SearchingKeyword

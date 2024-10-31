@@ -1,5 +1,6 @@
 package org.bong.search.core
 
+import org.bong.search.core.keyword.SearchingKeyword
 import org.bong.search.core.processor.PostProcessor
 import org.bong.search.core.processor.PreProcessor
 

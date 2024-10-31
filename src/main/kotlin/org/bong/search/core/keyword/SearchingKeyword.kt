@@ -1,4 +1,4 @@
-package org.bong.search.core
+package org.bong.search.core.keyword
 
 data class SearchingKeyword(
     val keyword: String,

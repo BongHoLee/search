@@ -1,6 +1,6 @@
 package org.bong.search.data.keyword
 
-import org.bong.search.core.Theme
+import org.bong.search.core.keyword.Theme
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query

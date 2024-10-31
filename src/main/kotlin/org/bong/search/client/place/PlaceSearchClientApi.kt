@@ -5,7 +5,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
 import org.bong.search.client.api.kakao.KakaoWebClientApi
 import org.bong.search.client.api.naver.NaverWebClientApi
-import org.bong.search.core.SearchingKeyword
+import org.bong.search.core.keyword.SearchingKeyword
 import org.bong.search.domain.place.PlaceReader
 import org.bong.search.domain.place.Places
 
