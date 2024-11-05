@@ -1,14 +1,14 @@
 package org.bong.search.core.processor.order.compare
 
 import org.bong.search.core.processor.operator.ComparisonOperator
-import kotlin.reflect.KProperty1
 
 class CompareByValue<T, V : Comparable<V>>(
-    private val targetProperty: KProperty1<T, V>,
     private val compareValue: V,
     private val comparisonOperator: ComparisonOperator,
-    private val next: OrderCompare<T> = NothingCompare()
+    private val next: OrderCompare<T> = NothingCompare(),
+    private val selector: (T) -> V,
 ) : OrderCompare<T> {
+
     override fun execute(items: List<T>): List<T> {
         val (matched, notMatched) = groupingMatchedOrNot(items)
 
@@ -18,7 +18,8 @@ class CompareByValue<T, V : Comparable<V>>(
 
     private fun groupingMatchedOrNot(items: List<T>): Pair<List<T>, List<T>> {
         return items.partition { item ->
-            comparisonOperator.compare(targetProperty.get(item), compareValue)
+
+            comparisonOperator.compare(selector.invoke(item), compareValue)
         }
     }
 }

@@ -15,7 +15,7 @@ class CompareByCount<T, V : Comparable<V>>(
     }
 
     private fun orderingByCount(items: List<T>): List<List<T>> {
-        val orderingByCount = items.groupBy { targetProperty.get(it) }
+        val orderingByCount = items.groupBy { targetProperty(it) }
             .values
             .groupBy { it.size }
             .values

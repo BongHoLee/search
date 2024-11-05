@@ -1,12 +1,11 @@
 package org.bong.search.core.keyword
 
-data class SearchedKeyword<T>(
-    val metaData: MetaData,
-    val data: T
-)
 
+interface SearchedKeyword {
+    val metaData: KeywordMetadata
+}
 
-data class MetaData(val source: Source)
+data class KeywordMetadata(val source: Source)
 
 data class Source(
     val type: SourceType,

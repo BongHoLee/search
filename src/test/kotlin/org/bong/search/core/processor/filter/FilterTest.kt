@@ -110,7 +110,7 @@ class FilterTest : FunSpec({
 
         // then
         filteredItems.forEach {
-            it shouldBe TestItemData("Kim", 50, "Seoul")
+            it shouldBe TestItemData(TestItemData.httpAndNaverMetaData,"Kim", 50, "Seoul")
         }
     }
 })

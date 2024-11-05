@@ -5,6 +5,8 @@ plugins {
     id("io.spring.dependency-management") version "1.1.6"
     kotlin("plugin.jpa") version "1.9.25"
     kotlin("plugin.serialization") version "1.9.22"
+
+    id("me.champeau.jmh") version "0.6.8"
 }
 
 group = "org.bong"
@@ -54,6 +56,9 @@ dependencies {
     testImplementation("io.mockk:mockk:1.12.0")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    implementation("org.openjdk.jmh:jmh-core:1.35")
+    implementation("org.openjdk.jmh:jmh-generator-annprocess:1.35")
 }
 
 kotlin {
