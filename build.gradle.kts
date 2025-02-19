@@ -29,8 +29,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     runtimeOnly("com.mysql:mysql-connector-j")
 
-    // Spring Boot Starter WebFlux (WebClient 사용을 위해 추가)
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    // HttpComponentsClientHttpRequestFactory 사용을 위한 추가 라이브러리
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.3.1")
 
     // Kotlin Coroutines Core
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")

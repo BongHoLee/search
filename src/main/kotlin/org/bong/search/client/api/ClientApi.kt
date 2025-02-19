@@ -1,15 +1,13 @@
 package org.bong.search.client.api
 
-import kotlinx.coroutines.reactor.awaitSingle
-import org.springframework.web.reactive.function.client.WebClient
+import org.springframework.web.client.RestClient
 
-abstract class BaseWebClientApi {
+abstract class BaseClientApi {
 
-    suspend inline fun <reified T> request(path: String, keyword: String): T {
+    inline fun <reified T> request(path: String, keyword: String): T {
         return retrieve(path, keyword)
-            .bodyToMono(T::class.java)
-            .awaitSingle()
+            .body(T::class.java)!!
     }
 
-    abstract fun retrieve(path: String, keyword: String): WebClient.ResponseSpec
+    abstract fun retrieve(path: String, keyword: String): RestClient.ResponseSpec
 }

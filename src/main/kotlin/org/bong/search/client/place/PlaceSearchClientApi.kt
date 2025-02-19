@@ -3,15 +3,15 @@ package org.bong.search.client.place
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
-import org.bong.search.client.api.kakao.KakaoWebClientApi
-import org.bong.search.client.api.naver.NaverWebClientApi
+import org.bong.search.client.api.kakao.KakaoClientApi
+import org.bong.search.client.api.naver.NaverClientApi
 import org.bong.search.core.keyword.SearchingKeyword
 import org.bong.search.domain.place.PlaceReader
 import org.bong.search.domain.place.Places
 
 class PlaceSearchClientApi(
-    private val kakaoWebClientApi: KakaoWebClientApi,
-    private val naverWebClientApi: NaverWebClientApi
+    private val kakaoClientApi: KakaoClientApi,
+    private val naverClientApi: NaverClientApi
 ) : PlaceReader {
 
     companion object {
@@ -27,11 +27,11 @@ class PlaceSearchClientApi(
             combinePlaces(kakaoPlacesDeferred.await(), naverPlacesDeferred.await())
         }
     }
-    private suspend fun requestToKakaoApi(keyword: String): Places =
-        kakaoWebClientApi.request<KakaoPlaceResponse>(keyword = keyword, path = KAKAO_PLACE_PATH).toPlaces()
+    private fun requestToKakaoApi(keyword: String): Places =
+        kakaoClientApi.request<KakaoPlaceResponse>(keyword = keyword, path = KAKAO_PLACE_PATH).toPlaces()
 
-    private suspend fun requestToNaverApi(keyword: String): Places =
-        naverWebClientApi.request<NaverPlaceResponse>(keyword = keyword, path = NAVER_PLACE_PATH).toPlaces()
+    private fun requestToNaverApi(keyword: String): Places =
+        naverClientApi.request<NaverPlaceResponse>(keyword = keyword, path = NAVER_PLACE_PATH).toPlaces()
 
     private fun combinePlaces(kakaoPlaces: Places, naverPlaces: Places): Places {
         return Places(

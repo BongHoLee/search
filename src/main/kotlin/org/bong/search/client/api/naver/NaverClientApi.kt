@@ -1,11 +1,11 @@
 package org.bong.search.client.api.naver
 
-import org.bong.search.client.api.BaseWebClientApi
-import org.springframework.web.reactive.function.client.WebClient
+import org.bong.search.client.api.BaseClientApi
+import org.springframework.web.client.RestClient
 
-class NaverWebClientApi(
-     private val webClient: WebClient
-) : BaseWebClientApi() {
+class NaverClientApi(
+     private val restClient: RestClient
+) : BaseClientApi() {
 
     companion object {
         private const val NAVER_API_HOST = "openapi.naver.com"
@@ -14,8 +14,8 @@ class NaverWebClientApi(
         private const val DISPLAY_COUNT = 5
     }
 
-    override fun retrieve(path: String, keyword: String): WebClient.ResponseSpec {
-        return webClient.get()
+    override fun retrieve(path: String, keyword: String): RestClient.ResponseSpec {
+        return restClient.get()
             .uri { uriBuilder ->
                 uriBuilder
                     .scheme("https")
